@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { GetProductListUsecase } from './application/usecases/get-product-list.usecase';
+import { RequestProductDigital } from './domain/model/product-digital.dto';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +11,11 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'experimental-tdd-clean-archi';
+
+  constructor(getProductListUsecase: GetProductListUsecase) {
+    const payload: RequestProductDigital = new RequestProductDigital(6281239834834, 'Semua')
+    getProductListUsecase.execute(payload).subscribe(response => {
+      console.log(response)
+    })
+  }
 }
