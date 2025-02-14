@@ -7,7 +7,7 @@ import {
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-
+import {createProxyMiddleware} from 'http-proxy-middleware'
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
@@ -104,6 +104,15 @@ app.post('/api/get-product-list', (req, res) => {
     },
   });
 });
+
+app.use('/api/users', createProxyMiddleware({
+  target: 'https://dummyjson.com/',
+  changeOrigin: true,
+  pathRewrite: {
+      [`^/api/`]: '',
+  },
+}));
+
 app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',

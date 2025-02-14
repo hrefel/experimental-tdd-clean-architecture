@@ -1,7 +1,7 @@
 import { map, Observable } from 'rxjs';
-import { RequestProductDigital } from '../../domain/model/product-digital.dto';
-import { ProductDigitaViewModel } from '../model/product-list.model';
-import { ProductRepository } from '../../domain/repositories/product.repositories';
+import { RequestProductDigital } from '../model/product/product-digital.dto';
+import { ProductDigitaViewModel } from '../model/product/product-list.model';
+import { ProductRepository } from '../../data/repositories/product.repositories';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -23,6 +23,7 @@ export class GetProductListUsecase {
             r.totalQuota,
             new Intl.NumberFormat('id-ID').format(r.price),
             new Intl.NumberFormat('id-ID').format(r.discountPrice),
+            (r.price / 2 * 100)
           );
           return result;
         });

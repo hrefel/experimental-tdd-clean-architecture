@@ -1,5 +1,3 @@
-import { ProductDigitalDomainEntity } from "../../domain/model/product-digital.entity"
-
 export class ProductDigitaViewModel {
   constructor(
     public productName: string,
@@ -8,7 +6,8 @@ export class ProductDigitaViewModel {
     public validity: string,
     public totalQuota: string,
     public priceDisplay: string,
-    public discountPriceDisplay: string
+    public discountPriceDisplay: string,
+    public proggresLevel: number
   ) {
   }
 

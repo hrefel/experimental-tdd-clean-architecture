@@ -1,24 +1,46 @@
 src/
- ├── core/              # Agnostik, tidak tergantung Angular
- │   ├── domain/
- │   │   ├── entities/  # Entity model tanpa Angular
- │   │   ├── usecases/  # Business logic (tanpa Angular)
- │   │   ├── repositories/  # Interface untuk repository
- │   │   └── services/  # Service agnostik (opsional)
- │   ├── utils/         # Helper/utility functions
- │   ├── errors/        # Custom Error Handling
- │   └── constants/     # Constants yang digunakan
- │
- ├── infrastructure/    # Implementasi konkret yang tergantung pada teknologi
- │   ├── repositories/  # Implementasi repository
- │   ├── adapters/      # Adapter dari domain ke Angular/service
- │   ├── services/      # Implementasi service
- │   └── api/           # API client, interceptor
- │
- ├── presentation/      # Lapisan khusus Angular (tergantung framework)
- │   ├── components/    # UI Components
- │   ├── pages/         # Pages dalam aplikasi
- │   ├── routes/        # Routing & Guards
- │   ├── guards/        # Angular Guards ditempatkan di sini!
- │   ├── services/      # Service yang terkait dengan UI (AuthService, ToastService)
- │   └── directives/    # Angular directives
+├── app/
+│   ├── core/                 # Singleton services & guards yang digunakan di seluruh aplikasi
+│   │   ├── guards/          
+│   │   ├── interceptors/    
+│   │   ├── services/        
+│   │   └── core.module.ts   
+│   │
+│   ├── data/                # Implementation dari repository & data sources
+│   │   ├── repositories/    # Implementasi konkrit dari abstract repositories
+│   │   ├── datasources/     # Remote (API) & local data sources
+│   │   └── models/          # Model/entity untuk data layer
+│   │
+│   ├── domain/             # Business logic & use cases
+│   │   ├── repositories/   # Abstract repository interfaces
+│   │   ├── entities/       # Domain entities/models
+│   │   └── usecases/       # Business logic use cases
+│   │
+│   ├── presentation/       # UI Components & state management
+│   │   ├── pages/         # Page/container components
+│   │   │   ├── home/
+│   │   │   ├── login/
+│   │   │   └── dashboard/
+│   │   ├── shared/        # Shared components, pipes, directives
+│   │   │   ├── components/
+│   │   │   ├── directives/
+│   │   │   └── pipes/
+│   │   └── store/         # State management (NgRx/Redux)
+│   │       ├── actions/
+│   │       ├── effects/
+│   │       ├── reducers/
+│   │       └── selectors/
+│   │
+│   ├── config/            # Konfigurasi aplikasi
+│   │   ├── api.config.ts
+│   │   └── app.config.ts
+│   │
+│   └── utils/            # Helper functions & constants
+│       ├── constants/
+│       └── helpers/
+│
+├── assets/              # Static files (images, fonts, etc)
+├── environments/        # Environment configurations
+└── styles/             # Global styles
+    ├── _variables.scss
+    └── styles.scss

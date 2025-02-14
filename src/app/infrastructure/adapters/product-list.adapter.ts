@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BaseResponse } from '../../api/model/base-response.model';
-import { ProductDigitalDto } from '../../api/model/product-digital.dto';
-import { ProductDigitalData } from '../../api/model/product-digital.model';
-import { RequestProductDigital } from '../../domain/model/product-digital.dto';
-import { ProductDigitalDomainEntity } from '../../domain/model/product-digital.entity';
+import { ProductDigitalDto } from '../../data/models/product-digital.dto';
+import { ProductDigitalData } from '../../data/models/product-digital.model';
+import { RequestProductDigital } from '../../domain/model/product/product-digital.dto';
+import { ProductDigitalDomainEntity } from '../../domain/model/product/product-digital.entity';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,8 @@ export class ProductListAdapter {
           r.OriginalPrice,
           r.Price,
           r.Validity,
-          r.TotalQuota
+          r.TotalQuota,
+          `Total Quota ${r.TotalQuota}`
         );
       });
     return mappedResponse;

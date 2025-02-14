@@ -1,13 +1,13 @@
 import { map, Observable, of } from 'rxjs';
-import { RequestProductDigital } from '../../domain/model/product-digital.dto';
-import { ProductDigitalDomainEntity } from '../../domain/model/product-digital.entity';
-import { ProductRepository } from '../../domain/repositories/product.repositories';
+import { RequestProductDigital } from '../../domain/model/product/product-digital.dto';
+import { ProductRepository } from '../../data/repositories/product.repositories';
 import { HttpService } from '../http.service';
-import { ProductDigitalData } from '../../api/model/product-digital.model';
-import { ProductDigitalDto } from '../../api/model/product-digital.dto';
+import { ProductDigitalData } from '../../data/models/product-digital.model';
+import { ProductDigitalDto } from '../../data/models/product-digital.dto';
 import { BaseResponse } from '../../api/model/base-response.model';
 import { ProductListAdapter } from '../adapters/product-list.adapter';
 import { Injectable } from '@angular/core';
+import { ProductDigitalDomainEntity } from '../../domain/model/product/product-digital.entity';
 
 @Injectable({
   providedIn: 'root',

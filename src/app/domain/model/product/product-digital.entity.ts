@@ -4,6 +4,7 @@ export class ProductDigitalDomainEntity {
     public price: number,
     public discountPrice: number,
     public validity: string,
-    public totalQuota: string
+    public totalQuota: string,
+    public totalQuotaLabel: string
   ) { }
 }

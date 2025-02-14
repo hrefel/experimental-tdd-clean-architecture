@@ -6,7 +6,7 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
-import { ProductRepository } from './domain/repositories/product.repositories';
+import { ProductRepository } from './data/repositories/product.repositories';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ProductListImplementation } from './infrastructure/repositories/product-digital.implementation';
 

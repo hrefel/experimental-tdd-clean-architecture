@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { GetProductListUsecase } from './application/usecases/get-product-list.usecase';
-import { RequestProductDigital } from './domain/model/product-digital.dto';
+import { GetProductListUsecase } from './domain/usecases/get-product-list.usecase';
+import { RequestProductDigital } from './domain/model/product/product-digital.dto';
 
 @Component({
   selector: 'app-root',

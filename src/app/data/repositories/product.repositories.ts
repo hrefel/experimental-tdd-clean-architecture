@@ -1,7 +1,7 @@
 import { Observable } from "rxjs";
-import { ProductDigitalDomainEntity } from "../model/product-digital.entity";
-import { RequestProductDigital } from "../model/product-digital.dto";
+import { RequestProductDigital } from "../../domain/model/product/product-digital.dto";
 import { Injectable } from "@angular/core";
+import { ProductDigitalDomainEntity } from "../../domain/model/product/product-digital.entity";
 
 @Injectable({
   providedIn: 'root'
